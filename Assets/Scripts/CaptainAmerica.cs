@@ -1,6 +1,6 @@
 using UnityEngine;
 
-class IronMan
+class CaptainAmericaMan
 {
     //Attributes
     public string Name;
@@ -9,7 +9,7 @@ class IronMan
     private float armorSTR;
 
     // Constructor
-    public IronMan(string newName, int newHp, string newsuitColor)
+    public CaptainAmericaMan(string newName, int newHp, string newsuitColor)
     {
         Name = newName;
         Hp = newHp;
@@ -17,40 +17,42 @@ class IronMan
         armorSTR = 10;
     }
 
-    public void Fly()
+    public void LeapAndJump()
     {
-        Debug.Log($"{Name} is fly");
+        Debug.Log($"CAPITÃO is LeapAndJump");
     }
-    public void Shootlaser()
+    public void ThrowShield()
     {
-        Debug.Log($"{Name} is shootlaser");
+        Debug.Log($" CAPITÃO is ThrowShield");
     }
     public void UpdateArmorStrength(float strength)
     {
         armorSTR += strength;
         Debug.Log($"{Name} updated their STR is {armorSTR}");
-
     }
     // Dead
-    public bool Isdead()
+    public bool Isdead() 
     {
         if (Hp <= 0)
         {
-            return true;
+                return true;
         }
-        else return false; 
+        else return false;
+         
     }
-    // DamegeKUb
-    public void TaskDamage(int damege)
+    //Damage
+    public void TaskDamage(int damege) 
     {
-        if (!Isdead())
+        if (!Isdead()) 
         {
             Hp -= damege;
             Debug.Log($"{Name} take {damege}Damage:");
         }
-        else
+        else 
         {
             Debug.Log($"{Name} is dead");
         }
     }
+
+     
 }
