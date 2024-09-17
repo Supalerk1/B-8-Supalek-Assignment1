@@ -5,30 +5,51 @@ using UnityEngine;
 public class SuperHero
 {
     //Attributes
-    public string Name;
-    public int Hp;
-    public string SuitColor;
-    private float armorSTR;
+    protected string name;
+    public string Name 
+    {
+        get 
+        {
+            return name;
+        }
+        set 
+        {
+            if (value == null || value == "") 
+            {
+                value = "N/A";
+            }
+            name = value;
+        }
+    }
 
+    protected int hp;
+    public int Hp { get { return hp; }set { hp = value; } }
+
+    protected string suitColor;
+    public string SuitColor { get; private set; }
+
+    private float armorStr;
+
+    
     // Constructor
     public SuperHero(string newName, int newHp, string newsuitColor)
     {
-        Name = newName;
-        Hp = newHp;
+        name = newName;
+        hp = newHp;
         SuitColor = newsuitColor;
-        armorSTR = 10;
+        armorStr = 10;
     }
 
     public void UpdateArmorStrength(float strength)
     {
-        armorSTR += strength;
-        Debug.Log($"{Name} updated their STR is {armorSTR}");
+        armorStr += strength;
+        Debug.Log($"{name} updated their STR is {armorStr}");
 
     }
     // Dead
     public bool Isdead()
     {
-        if (Hp <= 0)
+        if (hp <= 0)
         {
             return true;
         }
@@ -39,12 +60,12 @@ public class SuperHero
     {
         if (!Isdead())
         {
-            Hp -= damege;
-            Debug.Log($"{Name} take {damege}Damage:");
+            hp -= damege;
+            Debug.Log($"{name} take {damege}Damage:");
         }
         else
         {
-            Debug.Log($"{Name} is dead");
+            Debug.Log($"{name} is dead");
         }
     }
 }

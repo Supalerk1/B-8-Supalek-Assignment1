@@ -10,10 +10,10 @@ class CaptainAmericaMan : SuperHero
     //Behaviour
     public void LeapAndJump()
     {
-        Debug.Log($"CAPITÃO is LeapAndJump");
+        Debug.Log($"{Name} is LeapAndJump");
     }
     public void ThrowShield()
     {
-        Debug.Log($" CAPITÃO is ThrowShield");
+        Debug.Log($"{Name} is ThrowShield");
     } 
 }
