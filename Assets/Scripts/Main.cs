@@ -5,38 +5,41 @@ using UnityEngine.Assertions.Must;
 
 public class Main : MonoBehaviour
 {
+    IronMan ironMan = new IronMan("Tony", 100, "Red");
+    CaptainAmericaMan captainAmericaMan = new CaptainAmericaMan("CAPITÃO", 100, "Bule");
     // Start is called before the first frame update
     void Start()
     {
-        IronMan ironMan = new IronMan("Tony", 100, "Red");
+        
         ironMan.UpdateArmorStrength(5.25f);
-        CaptainAmericaMan captainAmericaMan = new CaptainAmericaMan("CAPITÃO", 100, "Bule");
+
+        
         captainAmericaMan.UpdateArmorStrength(5.25f);
 
-
-        for (var i = 0; i < 5; i++)
+        while (!ironMan.Isdead()&& !captainAmericaMan.Isdead()) 
         {
-        
-            Debug.Log($"IronMan name: {ironMan.Name}, Hp: {ironMan.Hp}, colorl: {ironMan.SuitColor}");
             
-
-            //ironman >damage
-            ironMan.Fly();
-            ironMan.Shootlaser();
-            captainAmericaMan.TaskDamage((int)Random.Range(10f, 20f));
-
-            Debug.Log($"CaptainAmericaMan name: {captainAmericaMan.Name},Hp: {captainAmericaMan.Hp},color: {captainAmericaMan.SuitColor}");
-            
-
-            //CAPITÃO >damage
-            captainAmericaMan.LeapAndJump();
-            captainAmericaMan.ThrowShield();
-            ironMan.TaskDamage((int)Random.Range(10f, 20f));
 
         }
 
-       
+      
+  
     }
 
+    private void Update()
+    {
+            Debug.Log($"IronMan name: {ironMan.Name}, Hp: {ironMan.Hp}, colorl: {ironMan.SuitColor}");
+            //ironman >damage
+            captainAmericaMan.TaskDamage((int)Random.Range(10, 20f));
+            ironMan.Fly();
+            ironMan.Shootlaser();
+           
 
+            Debug.Log($"CaptainAmericaMan name: {captainAmericaMan.Name},Hp: {captainAmericaMan.Hp},color: {captainAmericaMan.SuitColor}");
+            //CAPITÃO >damage
+            ironMan.TaskDamage((int)Random.Range(10f, 20f));
+            captainAmericaMan.LeapAndJump();
+            captainAmericaMan.ThrowShield();
+            
+    }
 }
