@@ -1,12 +1,8 @@
 using UnityEngine;
 
-class IronMan : SuperHero
+public class IronMan : SuperHero
 {
-    public IronMan(string newName, int newHp, string newsuitColor) 
-        : base(newName, newHp, newsuitColor)
-    {
-    }   
-       
+    
     //Behaviour
     public void Fly()
     {

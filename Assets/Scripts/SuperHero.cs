@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SuperHero
+public class SuperHero : MonoBehaviour
 {
     //Attributes
-    protected string name;
+    protected string _name;
     public string Name 
     {
         get 
@@ -30,22 +30,12 @@ public class SuperHero
 
     private float armorStr;
 
-    
-    // Constructor
-    public SuperHero(string newName, int newHp, string newsuitColor)
-    {
-        name = newName;
-        hp = newHp;
-        SuitColor = newsuitColor;
-        armorStr = 10;
-    }
-
     public void UpdateArmorStrength(float strength)
     {
         armorStr += strength;
         Debug.Log($"{name} updated their STR is {armorStr}");
-
     }
+
     // Dead
     public bool Isdead()
     {

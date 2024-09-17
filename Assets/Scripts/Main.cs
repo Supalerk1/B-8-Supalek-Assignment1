@@ -5,39 +5,39 @@ using UnityEngine.Assertions.Must;
 
 public class Main : MonoBehaviour
 {  
-    IronMan ironMan = new IronMan("Tonny", 100, "Red");
-    CaptainAmericaMan captainAmericaMan = new CaptainAmericaMan("CAPITÃO", 100, "Bule");
+    public IronMan ironMan ;
+    public CaptainAmericaMan CaptainAmericaMan;
 
     // Start is called before the first frame update
     void Start()
     {
-        ironMan.Name = "Non";
+       ironMan.Name = "";
 
         //Show Attribut
         Debug.Log($"IronMan name: {ironMan.Name}, Hp: {ironMan.Hp}, colorl: {ironMan.SuitColor}");
-        Debug.Log($"CaptainAmericaMan name: {captainAmericaMan.Name},Hp: {captainAmericaMan.Hp},color:{captainAmericaMan.SuitColor}");
+        Debug.Log($"CaptainAmericaMan name: {CaptainAmericaMan.Name},Hp: {CaptainAmericaMan.Hp},color:{CaptainAmericaMan.SuitColor}");
         
         ironMan.UpdateArmorStrength(5.25f);
-        captainAmericaMan.UpdateArmorStrength(5.25f);
+        CaptainAmericaMan.UpdateArmorStrength(5.25f);
 
     }
 
-    private void Update()
+   private void update()
     {
-        if(ironMan.Isdead() || captainAmericaMan.Isdead())
+        if( ironMan.Isdead() || CaptainAmericaMan.Isdead())
         {
             return;
         }
 
         //ironman >damage
-        captainAmericaMan.TaskDamage((int)Random.Range(10, 20f));
+        CaptainAmericaMan.TaskDamage((int)Random.Range(10, 20f));
         ironMan.Fly();
         ironMan.Shootlaser();
             
         //CAPITÃO >damage
         ironMan.TaskDamage((int)Random.Range(10f, 20f));
-        captainAmericaMan.LeapAndJump();
-        captainAmericaMan.ThrowShield();
+        CaptainAmericaMan.LeapAndJump();
+        CaptainAmericaMan.ThrowShield();
             
     }
 }
